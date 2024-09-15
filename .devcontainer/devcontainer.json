@@ -8,7 +8,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "git --version",
 	"mounts": [
-    	"source=/home/greg/.ssh,target=/ssh,type=bind"
+    	"source=/home/greg/.ssh,target=/root/.ssh,type=bind"
 	],
 	// Configure tool-specific properties.
 	"customizations": {
