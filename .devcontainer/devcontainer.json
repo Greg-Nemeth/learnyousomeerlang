@@ -1,14 +1,13 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
-	"image": "docker.io/erlang:latest",
+	"image": "docker.io/erlang:24.3.4.17",
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "git --version",
 	"mounts": [
-    	"source=/home/greg/.ssh,target=/root/.ssh,type=bind"
+		"source=/home/greg/.ssh,target=/root/.ssh,type=bind"
 	],
 	// Configure tool-specific properties.
 	"customizations": {

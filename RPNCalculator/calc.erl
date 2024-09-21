@@ -8,9 +8,9 @@ rpn(L) when is_list(L) ->
 %%%
 read(N) ->
     case string:to_float(N) of
-        {error, no_float} -> string:to_integer(N),
+        {error, no_float} -> string:to_integer(N);
         {F, _} -> F
     end.
 
-rpn("+", [N1, N2|S]) -> [N2 + N1 | S].
+rpn("+", [N1, N2|S]) -> [N2 + N1 | S];
 rpn(X, Stack) -> [read(X)|Stack]. 
