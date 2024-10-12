@@ -1,22 +1,19 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
-	"image": "docker.io/erlang:24.3.4.17",
+	"name": "erlangDevContainer",
+    "dockerFile": "./Dockerfile",
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"mounts": [
-		"source=/home/greg/.ssh,target=/root/.ssh,type=bind"
+	    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind",
+	    "source=${localEnv:HOME}/.config,target=/root/.config,type=bind"
 	],
 	// Configure tool-specific properties.
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"erlang-ls.erlang-ls"
-			]
-		}
-	}
+	"postCreateCommand": "wget -O - 'https://github.com/erlang-ls/erlang_ls/releases/download/1.0.0/erlang_ls-linux-26.tar.gz' | tar -xz -C /usr/bin/",
+    
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
